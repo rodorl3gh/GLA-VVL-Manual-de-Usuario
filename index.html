@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual de Usuario - Veni Vidi Lex</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #001f3f;
+  --navy-2: #2a2f63;
+  --blue: #3e6d9c;
+  --gold: #c6a15b;
+  --gold-dark: #b8934e;
+  --teal: #a7e0db;
+  --teal-light: #e3f6f5;
+  --ink: #33465c;
+  --muted: #6d88a3;
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --border: #e2e8f0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;font-size:15px}
+h1,h2,h3,.font-display{font-family:'Playfair Display',Georgia,serif}
+
+/* PORTADA */
+.cover{background:linear-gradient(150deg,var(--navy) 0%,var(--navy-2) 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:3rem 2rem;position:relative;overflow:hidden;color:#fff}
+.cover::before{content:'';position:absolute;top:-20%;right:-10%;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(198,161,91,.16) 0%,transparent 70%)}
+.cover::after{content:'';position:absolute;bottom:-25%;left:-12%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(94,176,201,.12) 0%,transparent 70%)}
+.cover-content{position:relative;z-index:1;max-width:760px}
+.cover-logo{width:150px;height:150px;margin:0 auto 2rem;border-radius:28px;overflow:hidden;background:#fff;box-shadow:0 20px 50px rgba(0,0,0,.45);border:2px solid var(--gold)}
+.cover-logo img{width:100%;height:100%;object-fit:cover}
+.cover .kicker{display:inline-block;padding:.4rem 1.1rem;border-radius:2rem;background:rgba(198,161,91,.16);border:1px solid rgba(198,161,91,.45);color:var(--gold);font-weight:700;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.5rem}
+.cover h1{font-size:3.4rem;font-weight:800;color:#fff;margin-bottom:.25rem;letter-spacing:-.01em}
+.cover h2{font-size:1.35rem;font-weight:500;color:var(--gold);margin-bottom:1.75rem;letter-spacing:.04em}
+.cover-line{width:80px;height:3px;background:var(--gold);border-radius:2px;margin:0 auto 2rem}
+.cover .subtitle{font-size:1.05rem;color:#c7d5e2;margin-bottom:3rem;max-width:520px;margin-left:auto;margin-right:auto}
+.cover-info{display:flex;gap:2.2rem;justify-content:center;flex-wrap:wrap;color:#a9bed2;font-size:.85rem}
+.cover-info span{display:flex;align-items:center;gap:.45rem}
+
+/* PÁGINAS */
+.page{max-width:980px;margin:0 auto;padding:2rem}
+.toc{background:var(--card);border-radius:16px;padding:2.25rem;box-shadow:0 1px 3px rgba(0,0,0,.06);border:1px solid var(--border);border-top:4px solid var(--gold);margin-bottom:3rem;page-break-before:always}
+.toc h2{font-size:1.5rem;font-weight:700;color:var(--navy);margin-bottom:1.25rem}
+.toc ol{padding-left:1.4rem;columns:2;column-gap:2.5rem}
+.toc li{margin-bottom:.6rem;font-size:.92rem;break-inside:avoid}
+.toc li a{color:var(--blue);text-decoration:none;font-weight:500}
+.toc li a:hover{text-decoration:underline;color:var(--gold-dark)}
+.toc li a .n{color:var(--gold-dark);font-weight:700;margin-right:.35rem}
+
+.section{background:var(--card);border-radius:16px;padding:2.5rem;box-shadow:0 1px 3px rgba(0,0,0,.06);border:1px solid var(--border);margin-bottom:2.5rem;page-break-inside:avoid}
+.section-number{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:11px;background:var(--navy);color:#fff;font-weight:800;font-size:1.1rem;margin-bottom:1rem;font-family:'Playfair Display',serif}
+.section h2{font-size:1.55rem;font-weight:700;color:var(--navy);margin-bottom:.75rem}
+.section p{color:var(--ink);margin-bottom:1rem;font-size:.95rem}
+.section .lead{color:var(--muted);font-size:.95rem}
+.section h3{font-size:1.02rem;font-weight:700;color:var(--navy);margin:1.4rem 0 .5rem}
+.section ul,.section ol{padding-left:1.5rem;margin-bottom:1rem;color:var(--ink);font-size:.95rem}
+.section li{margin-bottom:.45rem}
+.section .tip{background:var(--teal-light);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:var(--navy)}
+.section .tip strong{color:var(--gold-dark)}
+.section img{width:100%;border-radius:12px;border:1px solid var(--border);margin-top:.75rem;box-shadow:0 8px 24px rgba(0,31,63,.1)}
+.section .img-caption{text-align:center;font-size:.8rem;color:var(--muted);margin-top:.6rem;font-style:italic}
+.steps{counter-reset:step;margin:1rem 0}
+.step{counter-increment:step;display:flex;gap:1rem;align-items:flex-start;margin-bottom:1rem}
+.step-num{width:32px;height:32px;border-radius:50%;background:var(--gold);color:#1a1408;text-align:center;line-height:32px;font-weight:700;font-size:.85rem;flex-shrink:0}
+.step-content{flex:1}
+.step-content strong{color:var(--navy);display:block;margin-bottom:.12rem}
+.step-content span{color:var(--ink);font-size:.9rem}
+.btn{border:1px solid var(--border);border-radius:6px;padding:.22rem .6rem;font-size:.8rem;font-weight:600;background:var(--bg);color:var(--ink);white-space:nowrap}
+.btn-gold{background:var(--gold);color:#1a1408;border-color:var(--gold);font-weight:700}
+.btn-navy{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-green{background:#ecfdf5;color:#059669;border-color:#a7f3d0}
+.btn-red{background:#fef2f2;color:#dc2626;border-color:#fecaca}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+
+.footer-note{background:linear-gradient(150deg,var(--navy),var(--navy-2));color:#c7d5e2;border-radius:16px;padding:2.5rem;text-align:center;border:1px solid var(--navy-2)}
+.footer-note h3{color:#fff;margin-bottom:.5rem}
+.footer-note .gold{color:var(--gold)}
+
+@media print{
+  body{background:#fff}
+  .cover{min-height:auto;padding:4rem 2rem;page-break-after:always}
+  .section{box-shadow:none;border:1px solid #e2e8f0;page-break-inside:avoid}
+  .page{max-width:100%;padding:1.5rem}
+}
+@media(max-width:768px){.cover h1{font-size:2.3rem}.section{padding:1.5rem}.toc ol{columns:1}}
+</style>
+</head>
+<body>
+
+<!-- PORTADA -->
+<div class="cover">
+  <div class="cover-content">
+    <div class="cover-logo"><img src="img/logo-square.jpeg" alt="Veni Vidi Lex"></div>
+    <span class="kicker">Despacho legal</span>
+    <h1>Veni Vidi Lex</h1>
+    <h2>Manual de Usuario</h2>
+    <div class="cover-line"></div>
+    <p class="subtitle">Guía completa para gestionar tu despacho: agendar citas, administrar clientes y expedientes, y generar propuestas de servicios.</p>
+    <div class="cover-info">
+      <span>Celaya, Gto. &middot; Aguascalientes, Ags.</span>
+      <span>2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- BIENVENIDA -->
+  <div class="section">
+    <h2>Bienvenido, Jonathan</h2>
+    <p>Este manual te guiará paso a paso en el uso de <strong>Veni Vidi Lex</strong>, el sistema digital de tu despacho. Aquí aprenderás a recibir citas de tus clientes, llevar el control de casos y expedientes, y generar propuestas de servicios en PDF.</p>
+    <p>El sistema se divide en dos grandes partes:</p>
+    <ul>
+      <li><strong>La página pública:</strong> lo que ven tus clientes cuando visitan tu sitio (información del despacho y el asistente para agendar citas).</li>
+      <li><strong>El panel de administración:</strong> donde tú gestionas citas, clientes, expedientes, áreas, servicios y testimonios.</li>
+    </ul>
+    <p><strong>No necesitas conocimientos técnicos.</strong> Todo está diseñado para que puedas usarlo fácilmente desde tu computadora o celular.</p>
+    <div class="tip"><strong>Acceso rápido:</strong> El sistema está disponible en internet en cualquier momento. Solo necesitas tu usuario y contraseña para entrar al panel.</div>
+  </div>
+
+  <!-- ÍNDICE -->
+  <div class="toc">
+    <h2>Índice</h2>
+    <ol>
+      <li><a href="#s1"><span class="n">1.</span>La página principal</a></li>
+      <li><a href="#s2"><span class="n">2.</span>Agendar una cita</a></li>
+      <li><a href="#s3"><span class="n">3.</span>Cómo te contactan los clientes</a></li>
+      <li><a href="#s4"><span class="n">4.</span>Cómo ingresar al panel de administración</a></li>
+      <li><a href="#s5"><span class="n">5.</span>Panel principal (Dashboard)</a></li>
+      <li><a href="#s6"><span class="n">6.</span>Citas (agenda)</a></li>
+      <li><a href="#s7"><span class="n">7.</span>Clientes y expedientes</a></li>
+      <li><a href="#s8"><span class="n">8.</span>Generar una propuesta de servicios (PDF)</a></li>
+      <li><a href="#s9"><span class="n">9.</span>Áreas de práctica</a></li>
+      <li><a href="#s10"><span class="n">10.</span>Servicios</a></li>
+      <li><a href="#s11"><span class="n">11.</span>Testimonios</a></li>
+    </ol>
+  </div>
+
+  <!-- 1 -->
+  <div class="section" id="s1">
+    <div class="section-number">1</div>
+    <h2>La página principal</h2>
+    <p class="lead">Es la primera pantalla que ven tus clientes. Presenta tu despacho y los invita a contactarte o agendar una cita.</p>
+    <h3>Qué encuentra el cliente aquí</h3>
+    <ul>
+      <li><strong>Portada (Hero):</strong> el mensaje principal <em>"Te defendemos como si fuera nuestro propio caso"</em>, con botones para <span class="btn btn-gold">Agendar cita</span> y <span class="btn">WhatsApp</span>.</li>
+      <li><strong>Cuéntanos tu caso:</strong> situaciones comunes (divorcio, despido, problemas con contratos, etc.) que llevan al cliente directo a tu WhatsApp.</li>
+      <li><strong>Conoce a tu abogado:</strong> tu foto, experiencia y valores del despacho.</li>
+      <li><strong>Áreas de práctica y Servicios:</strong> las especialidades del despacho con sus honorarios.</li>
+      <li><strong>Testimonios:</strong> historias de clientes satisfechos.</li>
+      <li><strong>Contacto:</strong> teléfono, WhatsApp, correo y las direcciones de tus dos sucursales con mapa.</li>
+    </ul>
+    <img src="img/01-landing.png" alt="Página principal de Veni Vidi Lex">
+    <p class="img-caption">Página principal que ven los visitantes con el hero y la invitación a agendar.</p>
+    <div class="tip"><strong>Botón de WhatsApp:</strong> En la esquina inferior derecha hay un botón flotante de WhatsApp. Cuando un cliente lo usa, el mensaje llega directo a tu número.</div>
+  </div>
+
+  <!-- 2 -->
+  <div class="section" id="s2">
+    <div class="section-number">2</div>
+    <h2>Agendar una cita</h2>
+    <p class="lead">El asistente guía a tu cliente en 4 pasos sencillos para reservar una cita desde la página web.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Servicio</strong><span>El cliente elige el servicio que necesita. El sistema avanza automáticamente al siguiente paso.</span></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Fecha</strong><span>Selecciona un día disponible en el calendario (los domingos no están disponibles).</span></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Hora</strong><span>Elige un horario disponible de la lista.</span></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Datos</strong><span>Escribe su nombre, teléfono (10 dígitos) y notas opcionales. Confirma la cita.</span></div></div>
+    </div>
+    <img src="img/02-agendar.png" alt="Asistente de citas con los pasos">
+    <p class="img-caption">Asistente para agendar una cita, con el logo del despacho y los 4 pasos.</p>
+    <h3>Clientes que ya existen</h3>
+    <p>Si el cliente ya se ha atendido antes, puede elegir <strong>"Ya soy cliente"</strong> y escribir su <strong>número de cliente</strong> (por ejemplo <span class="btn">CLI-001</span>). El sistema completa sus datos automáticamente y relaciona la nueva cita con su expediente.</p>
+    <div class="tip"><strong>Consejo:</strong> Al terminar, el cliente recibe su número de cliente. Ese número le sirve para futuras citas sin volver a escribir sus datos.</div>
+  </div>
+
+  <!-- 3 -->
+  <div class="section" id="s3">
+    <div class="section-number">3</div>
+    <h2>Cómo te contactan los clientes</h2>
+    <p class="lead">La página tiene varios caminos para que el cliente se comunique contigo de forma directa.</p>
+    <h3>Canales de contacto</h3>
+    <ul>
+      <li><strong>WhatsApp:</strong> desde el botón flotante, desde la sección "Cuéntanos tu caso" o desde la sección de contacto. Cada caso predefine un mensaje para que sea más fácil para el cliente.</li>
+      <li><strong>Teléfono:</strong> los clientes pueden llamarte directamente desde la sección de contacto.</li>
+      <li><strong>Correo y redes:</strong> tu email e Instagram están visibles.</li>
+      <li><strong>Mapas:</strong> las dos sucursales muestran su ubicación en Google Maps.</li>
+    </ul>
+    <div class="tip"><strong>Todo llega a ti:</strong> Las citas se guardan automáticamente en tu panel (sección Citas). Los mensajes de WhatsApp llegan a tu número. No tienes que hacer nada extra.</div>
+  </div>
+
+  <!-- 4 -->
+  <div class="section" id="s4">
+    <div class="section-number">4</div>
+    <h2>Cómo ingresar al panel de administración</h2>
+    <p class="lead">El panel de administración es tu centro de control. Para entrar, sigue estos pasos:</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Abre el panel</strong><span>Agrega <span class="btn">/admin</span> al final de la dirección de tu sitio, por ejemplo: <em>tusitio.com/admin</em>.</span></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Escribe tus credenciales</strong><span>Ingresa tu usuario y contraseña de administrador.</span></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Haz clic en "Iniciar sesión"</strong><span>Serás redirigido al panel principal.</span></div></div>
+    </div>
+    <img src="img/03-login.png" alt="Pantalla de inicio de sesión">
+    <p class="img-caption">Pantalla de inicio de sesión del panel de administración.</p>
+    <div class="tip"><strong>Importante:</strong> No compartas tu contraseña con nadie. Si la olvidas, contacta al administrador del sistema.</div>
+  </div>
+
+  <!-- 5 -->
+  <div class="section" id="s5">
+    <div class="section-number">5</div>
+    <h2>Panel principal (Dashboard)</h2>
+    <p class="lead">Al ingresar, verás el Dashboard: un resumen de toda la actividad de tu despacho.</p>
+    <h3>Qué información muestra</h3>
+    <ul>
+      <li><strong>Citas hoy:</strong> cuántas citas tienes para el día.</li>
+      <li><strong>Citas pendientes:</strong> las que aún no se confirman.</li>
+      <li><strong>Clientes:</strong> el total de clientes registrados.</li>
+      <li><strong>Casos activos:</strong> los expedientes en curso.</li>
+    </ul>
+    <p>Debajo de las tarjetas está el <strong>acceso rápido</strong> a todas las secciones del panel.</p>
+    <img src="img/04-dashboard.png" alt="Panel principal con estadísticas">
+    <p class="img-caption">Panel principal con las tarjetas de resumen y el acceso rápido.</p>
+    <div class="tip"><strong>Menú lateral:</strong> A la izquierda tienes el menú con todas las secciones: Citas, Clientes, Áreas, Servicios y Testimonios. También puedes cambiar el tema a modo claro.</div>
+  </div>
+
+  <!-- 6 -->
+  <div class="section" id="s6">
+    <div class="section-number">6</div>
+    <h2>Citas (agenda)</h2>
+    <p class="lead">Aquí gestionas todas las citas que llegan desde la página web o que registras tú manualmente.</p>
+    <h3>Qué puedes hacer</h3>
+    <ul>
+      <li><strong>Ver el calendario:</strong> navega entre meses con las flechas. Los días con citas se marcan con un punto dorado.</li>
+      <li><strong>Consultar un día:</strong> haz clic en un día para ver sus citas.</li>
+      <li><strong>Cambiar el estado:</strong> Pendiente → Confirmada → Completada → Cancelada.</li>
+      <li><strong>Nueva cita:</strong> con el botón <span class="btn btn-gold">Nueva cita</span> registra una cita manualmente.</li>
+      <li><strong>Eliminar:</strong> quita una cita que ya no necesites.</li>
+    </ul>
+    <img src="img/05-citas.png" alt="Agenda de citas con calendario">
+    <p class="img-caption">Agenda de citas con el calendario y el detalle del día seleccionado.</p>
+    <div class="tip"><strong>Seguimiento:</strong> Usa los estados para saber en qué etapa está cada cita. Así no se te escapa ninguna consulta.</div>
+  </div>
+
+  <!-- 7 -->
+  <div class="section" id="s7">
+    <div class="section-number">7</div>
+    <h2>Clientes y expedientes</h2>
+    <p class="lead">Aquí está toda la información de tus clientes y sus casos. Haz clic en cualquier cliente para abrir su ficha completa.</p>
+    <h3>Lista de clientes</h3>
+    <p>Cada tarjeta muestra el <strong>número de cliente</strong>, su nombre, teléfono, correo y cuántos expedientes y asuntos tiene. Haz clic en la tarjeta (en cualquier parte) para abrirla.</p>
+    <img src="img/06-clientes.png" alt="Lista de clientes">
+    <p class="img-caption">Lista de clientes con su número, datos de contacto y número de casos.</p>
+    <h3>Ficha del cliente</h3>
+    <p>Dentro de la ficha puedes editar los datos del cliente y gestionar sus casos:</p>
+    <ul>
+      <li><strong>Asuntos:</strong> materia, actor, demandado, asunto, expediente, estatus y juzgado de cada caso.</li>
+      <li><strong>Expedientes:</strong> la etapa del caso y las preguntas/respuestas del cliente.</li>
+      <li><strong>Documentos:</strong> adjunta documentos del caso con su estado.</li>
+      <li><strong>Seguimiento:</strong> notas sobre el avance del caso.</li>
+    </ul>
+    <img src="img/07-cliente-detalle.png" alt="Ficha de un cliente con sus asuntos">
+    <p class="img-caption">Ficha del cliente con sus datos, asuntos y expedientes.</p>
+    <div class="tip"><strong>Atajo:</strong> Desde la ficha también puedes generar la propuesta de servicios (siguiente sección).</div>
+  </div>
+
+  <!-- 8 -->
+  <div class="section" id="s8">
+    <div class="section-number">8</div>
+    <h2>Generar una propuesta de servicios (PDF)</h2>
+    <p class="lead">Desde la ficha de un cliente puedes crear una propuesta o presupuesto de servicios en PDF, listo para entregar.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Abre el cliente</strong><span>En la ficha del cliente, haz clic en <span class="btn btn-gold">Generar contrato</span>.</span></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Revisa los datos</strong><span>El formulario ya viene lleno con los datos del cliente, el caso y el despacho. Corrige o completa lo que haga falta (materia, objeto, titular, autoridad, etc.).</span></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Escribe los honorarios</strong><span>Captura el honorario total. El sistema calcula automáticamente el monto en letra y las dos exhibiciones (50% cada una, ajustable).</span></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Genera la propuesta</strong><span>Haz clic en <span class="btn btn-gold">Generar Propuesta</span>. El PDF se descarga en tu computadora.</span></div></div>
+    </div>
+    <img src="img/08-generar-contrato.png" alt="Formulario para generar la propuesta">
+    <p class="img-caption">Recuadro para generar la propuesta, con los datos precargados y los honorarios.</p>
+    <h3>Personalizar la redacción del documento</h3>
+    <p>Si necesitas ajustar el texto del documento, expande <strong>"Editar redacción del documento"</strong>:</p>
+    <ul>
+      <li>Las <strong>píldoras doradas</strong> son campos que se llenan solos (nombre del cliente, objeto, honorarios, etc.).</li>
+      <li>Puedes escribir texto libremente alrededor de las píldoras, borrarlas o agregar más con <span class="btn">＋ Insertar campo</span>.</li>
+      <li>Si desordenas el documento, usa <span class="btn">Restablecer contrato</span> para volver al formato original.</li>
+    </ul>
+    <div class="tip"><strong>Importante:</strong> El PDF no se guarda automáticamente en el sistema. Descárgalo y guárdalo en tu computadora o en tu expediente.</div>
+  </div>
+
+  <!-- 9 -->
+  <div class="section" id="s9">
+    <div class="section-number">9</div>
+    <h2>Áreas de práctica</h2>
+    <p class="lead">Las áreas son las especialidades del despacho que se muestran en la página principal.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Nueva área</strong><span>Con <span class="btn btn-gold">Nueva área</span> agrega una especialidad (nombre, descripción e icono).</span></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Editar o eliminar</strong><span>Puedes modificar una área existente o quitarla si ya no la ofreces.</span></div></div>
+    </div>
+    <img src="img/10-areas.png" alt="Gestión de áreas de práctica">
+    <p class="img-caption">Pantalla de administración de áreas de práctica.</p>
+    <div class="tip"><strong>Visible al instante:</strong> Los cambios que hagas aquí se reflejan de inmediato en la página pública.</div>
+  </div>
+
+  <!-- 10 -->
+  <div class="section" id="s10">
+    <div class="section-number">10</div>
+    <h2>Servicios</h2>
+    <p class="lead">Los servicios son lo que ofreces, con sus honorarios. Aparecen en la página y en el asistente de citas.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Nuevo servicio</strong><span>Agrega el nombre, descripción, honorario (ej. "Desde $800") y notas.</span></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Editar o eliminar</strong><span>Actualiza precios o quita servicios que ya no ofrezcas.</span></div></div>
+    </div>
+    <img src="img/09-servicios.png" alt="Gestión de servicios">
+    <p class="img-caption">Pantalla de administración de servicios con sus honorarios.</p>
+    <div class="tip"><strong>Honorarios claros:</strong> Los precios que pongas aquí se muestran en la página, así el cliente los ve desde el inicio.</div>
+  </div>
+
+  <!-- 11 -->
+  <div class="section" id="s11">
+    <div class="section-number">11</div>
+    <h2>Testimonios</h2>
+    <p class="lead">Los testimonios son las opiniones de tus clientes que generan confianza en la página.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Nuevo testimonio</strong><span>Agrega el nombre del cliente, su cargo o tipo de caso, y su comentario.</span></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Editar o eliminar</strong><span>Actualiza o quita testimonios cuando lo necesites.</span></div></div>
+    </div>
+    <img src="img/11-testimonios.png" alt="Gestión de testimonios">
+    <p class="img-caption">Pantalla de administración de testimonios.</p>
+    <div class="tip"><strong>Recomendación:</strong> Pide a tus clientes satisfechos una frase corta; es la mejor publicidad para tu despacho.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-note">
+    <h3 class="font-display">Veni Vidi Lex <span class="gold">·</span> Divide et Impera</h3>
+    <p style="font-size:.88rem">Sistema desarrollado por GLA (GrowLink Agency)</p>
+  </div>
+
+</div>
+</body>
+</html>
