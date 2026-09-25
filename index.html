@@ -111,7 +111,7 @@ tr:nth-child(even) td{background:#fafbfc}
     <h1>Veni Vidi Lex</h1>
     <h2>Manual de Usuario</h2>
     <div class="cover-line"></div>
-    <p class="subtitle">Guía completa del sistema: agenda de eventos, tareas del equipo, clientes y expedientes, historial de actividad, notificaciones y conexión de correo.</p>
+    <p class="subtitle">Guía completa del sistema: agenda de eventos, tareas del equipo, clientes y expedientes, la sección Despacho, historial de actividad, notificaciones y conexión de correo.</p>
     <div class="cover-info">
       <span>Celaya, Gto. &middot; Aguascalientes, Ags.</span>
       <span>2026</span>
@@ -147,12 +147,14 @@ tr:nth-child(even) td{background:#fafbfc}
       <li><a href="#s7"><span class="n">7.</span>Tareas del equipo y cumplimiento</a></li>
       <li><a href="#s8"><span class="n">8.</span>Clientes y expedientes</a></li>
       <li><a href="#s9"><span class="n">9.</span>Generar una propuesta de servicios (PDF)</a></li>
-      <li><a href="#s10"><span class="n">10.</span>Áreas de práctica</a></li>
-      <li><a href="#s11"><span class="n">11.</span>Servicios</a></li>
-      <li><a href="#s12"><span class="n">12.</span>Historial de actividad</a></li>
-      <li><a href="#s13"><span class="n">13.</span>Configuración, notificaciones y recordatorios</a></li>
-      <li><a href="#s14"><span class="n">14.</span>Conexión de correo</a></li>
-      <li><a href="#s15"><span class="n">15.</span>Usuarios y perfiles</a></li>
+      <li><a href="#s10"><span class="n">10.</span>Despacho (secciones del despacho)</a></li>
+      <li><a href="#s11"><span class="n">11.</span>Áreas de práctica</a></li>
+      <li><a href="#s12"><span class="n">12.</span>Servicios</a></li>
+      <li><a href="#s13"><span class="n">13.</span>Equipo Legal</a></li>
+      <li><a href="#s14"><span class="n">14.</span>Historial de actividad</a></li>
+      <li><a href="#s15"><span class="n">15.</span>Configuración, notificaciones y recordatorios</a></li>
+      <li><a href="#s16"><span class="n">16.</span>Conexión de correo</a></li>
+      <li><a href="#s17"><span class="n">17.</span>Usuarios y perfiles</a></li>
     </ol>
   </div>
 
@@ -221,7 +223,7 @@ tr:nth-child(even) td{background:#fafbfc}
     <h3>Primer ingreso: cambio de contraseña obligatorio</h3>
     <p>La <strong>primera vez</strong> que entres, el sistema te pedirá una <strong>nueva contraseña</strong>. En esa misma pantalla puedes <strong>mantener tu usuario</strong> o cambiarlo por uno que prefieras.</p>
     <div class="warn"><strong>Importante:</strong> la contraseña temporal solo sirve para el primer ingreso. Elige una contraseña segura y no la compartas con nadie. Por seguridad, cada persona tiene su propio usuario.</div>
-    <div class="tip"><strong>¿Olvidaste tu contraseña?</strong> Contacta al soporte del sistema para que te la restablezca. Solo el administrador del sistema puede crear usuarios y restablecer contraseñas.</div>
+    <div class="tip"><strong>¿Olvidaste tu contraseña?</strong> Contacta al soporte del sistema para que te la restablezca. Solo el <strong>superadministrador</strong> (soporte de la agencia) puede crear usuarios y restablecer contraseñas.</div>
   </div>
 
   <!-- 5 -->
@@ -238,7 +240,7 @@ tr:nth-child(even) td{background:#fafbfc}
     <p>Debajo están las tarjetas de <strong>acceso rápido</strong> a las secciones del panel.</p>
     <img src="img/04-dashboard.png" alt="Panel principal con estadísticas">
     <p class="img-caption">Panel principal con las tarjetas de resumen y el acceso rápido.</p>
-    <div class="tip"><strong>Menú lateral:</strong> a la izquierda está el menú con todas las secciones (Agenda, Tareas, Clientes, Áreas, Servicios, Equipo Legal). Según tu perfil verás además Historial, Conexiones y Configuración. También puedes cambiar entre modo claro y oscuro.</div>
+    <div class="tip"><strong>Menú lateral:</strong> a la izquierda está el menú con las secciones. Incluye <strong>Dashboard</strong>, <strong>Agenda</strong>, <strong>Despacho</strong> (que agrupa Áreas, Servicios y Equipo Legal) y, según tu perfil, <strong>Tareas</strong>, <strong>Clientes</strong>, <strong>Historial</strong>, <strong>Usuarios</strong>, <strong>Conexiones</strong> y <strong>Configuración</strong>. La sección <strong>Despacho</strong> se despliega al hacer clic en la flecha. También puedes cambiar entre modo claro y oscuro.</div>
   </div>
 
   <!-- 6 -->
@@ -265,7 +267,7 @@ tr:nth-child(even) td{background:#fafbfc}
     </ul>
     <img src="img/05-citas.png" alt="Agenda de eventos con calendario">
     <p class="img-caption">Agenda con el calendario, la leyenda de tipos y el detalle del día.</p>
-    <div class="tip"><strong>Recordatorios:</strong> si el responsable tiene su correo conectado, la actividad se envía a su calendario de Zoho y le recuerda automáticamente. También recibe el aviso dentro del sistema (ver sección 13).</div>
+    <div class="tip"><strong>Recordatorios:</strong> si el responsable tiene su correo conectado <strong>y verificado</strong>, la actividad se envía a su calendario de Zoho y le recuerda automáticamente. También recibe el aviso dentro del sistema (ver secciones 15 y 16).</div>
   </div>
 
   <!-- 7 -->
@@ -339,6 +341,22 @@ tr:nth-child(even) td{background:#fafbfc}
   <!-- 10 -->
   <div class="section" id="s10">
     <div class="section-number">10</div>
+    <h2>Despacho</h2>
+    <p class="lead">Despacho es una <strong>sección madre</strong> que reúne y organiza varias partes del despacho en un solo lugar para navegar más fácil.</p>
+    <p>Al abrirla verás un <strong>pequeño tablero (dashboard)</strong> con una tarjeta por cada sección que contiene. Cada tarjeta muestra un resumen (por ejemplo, cuántos elementos hay) y un botón <span class="btn">Administrar</span> que te lleva directo a esa sección.</p>
+    <h3>Qué contiene</h3>
+    <ul>
+      <li><strong>Áreas</strong> — las áreas de práctica del despacho.</li>
+      <li><strong>Servicios</strong> — los servicios jurídicos y sus honorarios.</li>
+      <li><strong>Equipo Legal</strong> — los integrantes del equipo jurídico.</li>
+    </ul>
+    <p>Para el <strong>superadministrador</strong> (perfil de la agencia), la sección Despacho también agrupa <strong>Tareas</strong> y <strong>Clientes</strong>, por lo que verá cinco tarjetas en su tablero.</p>
+    <div class="tip"><strong>Menú plegable:</strong> en el menú lateral, Despacho se abre y se cierra con la flecha. Si entras a una subsección, se abre automáticamente y se resalta la opción activa.</div>
+  </div>
+
+  <!-- 11 -->
+  <div class="section" id="s11">
+    <div class="section-number">11</div>
     <h2>Áreas de práctica</h2>
     <p class="lead">Las áreas son las especialidades del despacho que se muestran en la página pública.</p>
     <div class="steps">
@@ -350,9 +368,9 @@ tr:nth-child(even) td{background:#fafbfc}
     <div class="tip"><strong>Visible al instante:</strong> los cambios se reflejan de inmediato en la página pública.</div>
   </div>
 
-  <!-- 11 -->
-  <div class="section" id="s11">
-    <div class="section-number">11</div>
+  <!-- 12 -->
+  <div class="section" id="s12">
+    <div class="section-number">12</div>
     <h2>Servicios</h2>
     <p class="lead">Los servicios son lo que ofrece el despacho, con sus honorarios. Aparecen en la página y en el asistente de citas.</p>
     <div class="steps">
@@ -364,12 +382,24 @@ tr:nth-child(even) td{background:#fafbfc}
     <div class="tip"><strong>Honorarios claros:</strong> los precios que pongas aquí se muestran en la página, así el cliente los ve desde el inicio.</div>
   </div>
 
-  <!-- 12 -->
-  <div class="section" id="s12">
-    <div class="section-number">12</div>
+  <!-- 13 -->
+  <div class="section" id="s13">
+    <div class="section-number">13</div>
+    <h2>Equipo Legal</h2>
+    <p class="lead">Aquí se administran los integrantes del equipo jurídico que se muestran en la página pública.</p>
+    <ul>
+      <li><strong>Nuevo integrante:</strong> agrega su nombre, cargo, descripción breve, foto e icono.</li>
+      <li><strong>Editar o eliminar:</strong> actualiza la información de un integrante o quítalo cuando ya no forme parte del equipo.</li>
+    </ul>
+    <div class="tip"><strong>Relación con la asignación:</strong> los integrantes del equipo son las personas a las que puedes asignar eventos y tareas, y que pueden conectar su correo para recibir recordatorios.</div>
+  </div>
+
+  <!-- 14 -->
+  <div class="section" id="s14">
+    <div class="section-number">14</div>
     <h2>Historial de actividad</h2>
     <p class="lead">Registro de todo lo que pasa en el sistema: inicios de sesión, altas y cambios de clientes, expedientes, eventos, tareas y usuarios.</p>
-    <p>El <strong>administrador</strong> puede ver la actividad del equipo de los <strong>últimos 15 días</strong>. El historial se muestra en <strong>páginas de 20 en 20</strong> y puedes filtrarlo por tipo de acción.</p>
+    <p>El <strong>administrador</strong> y el <strong>superadministrador</strong> pueden ver la actividad del equipo de los <strong>últimos 15 días</strong>. El historial se muestra en <strong>páginas de 20 en 20</strong> y puedes filtrarlo por tipo de acción.</p>
     <ul>
       <li><strong>Filtro por acción:</strong> muestra solo un tipo (por ejemplo, altas de clientes).</li>
       <li><strong>Paginación:</strong> usa <span class="btn">Anterior</span> / <span class="btn">Siguiente</span> para avanzar.</li>
@@ -378,9 +408,9 @@ tr:nth-child(even) td{background:#fafbfc}
     <div class="tip"><strong>Respaldo automático:</strong> el día 1 de cada mes el sistema guarda automáticamente el historial del mes anterior como reporte y, una vez guardado correctamente, libera esa memoria.</div>
   </div>
 
-  <!-- 13 -->
-  <div class="section" id="s13">
-    <div class="section-number">13</div>
+  <!-- 15 -->
+  <div class="section" id="s15">
+    <div class="section-number">15</div>
     <h2>Configuración, notificaciones y recordatorios</h2>
     <p class="lead">Cada persona tiene su propia sección de <strong>Configuración</strong> en el menú lateral.</p>
     <h3>Mi cuenta</h3>
@@ -402,15 +432,15 @@ tr:nth-child(even) td{background:#fafbfc}
     <div class="tip"><strong>Todo es personal:</strong> cada usuario configura su propio tono y sus propios tiempos de aviso sin afectar a los demás.</div>
   </div>
 
-  <!-- 14 -->
-  <div class="section" id="s14">
-    <div class="section-number">14</div>
+  <!-- 16 -->
+  <div class="section" id="s16">
+    <div class="section-number">16</div>
     <h2>Conexión de correo</h2>
     <p class="lead">Conecta tu correo del despacho para que tus eventos se agreguen a tu calendario y te recuerden automáticamente.</p>
     <div class="steps">
       <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Crea una contraseña de aplicación en Zoho</strong><span>Entra a tu cuenta de Zoho Mail → Seguridad → Contraseñas de aplicación y genera una.</span></div></div>
       <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Conéctala en el sistema</strong><span>En <strong>Configuración → Conexión de correo</strong>, escribe tu correo y pega la contraseña de aplicación.</span></div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>El sistema valida la conexión</strong><span>Si las credenciales son correctas, verás la etiqueta <strong>"Verificado"</strong>. Si no, aparecerá un aviso para corregirla.</span></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>El sistema valida la conexión</strong><span>Si las credenciales son correctas, verás la etiqueta <strong>"Verificado"</strong> y el servidor de Zoho detectado (por ejemplo <em>smtp.zoho.com</em> o <em>smtp.zoho.eu</em>). Si algo falla, aparecerá un aviso con la causa y cómo corregirla.</span></div></div>
     </div>
     <h3>Qué pasa al conectarlo</h3>
     <ul>
@@ -418,16 +448,34 @@ tr:nth-child(even) td{background:#fafbfc}
       <li>Tu <strong>calendario de Zoho</strong> los registra y te envía el recordatorio según tu configuración de Zoho.</li>
       <li>Puedes <strong>actualizar</strong> tus credenciales o <strong>desconectar</strong> tu correo cuando quieras.</li>
     </ul>
-    <div class="tip"><strong>Privacidad:</strong> el administrador puede ver si tu conexión está correcta, pero no ve tu contraseña. Solo el soporte del sistema puede revocar una conexión.</div>
+    <h3>Si aparece "Sin verificar"</h3>
+    <ul>
+      <li><strong>Usa una contraseña de aplicación:</strong> Zoho rechaza tu contraseña normal. Genérala en Zoho Mail → Seguridad → Contraseñas de aplicación.</li>
+      <li><strong>Revisa el correo:</strong> debe ser tu cuenta real de Zoho Mail (por ejemplo <em>nombre@vvljuridico.com</em>).</li>
+      <li><strong>Región de Zoho:</strong> el sistema detecta automáticamente el servidor correcto (México/EE. UU., Europa, India, Australia). No necesitas elegirlo.</li>
+      <li>Vuelve a intentar con <span class="btn">Actualizar credenciales</span>. Si el problema continúa, pide apoyo al soporte del sistema.</li>
+    </ul>
+    <div class="tip"><strong>Privacidad:</strong> el administrador puede ver si tu conexión está correcta y qué servidor usa, pero no ve tu contraseña. Solo el soporte del sistema puede revocar una conexión.</div>
   </div>
 
-  <!-- 15 -->
-  <div class="section" id="s15">
-    <div class="section-number">15</div>
+  <!-- 17 -->
+  <div class="section" id="s17">
+    <div class="section-number">17</div>
     <h2>Usuarios y perfiles</h2>
     <p class="lead">Cada persona del despacho tiene su propio usuario y contraseña. Así cada quien ve lo suyo y todo queda registrado.</p>
     <h3>Perfiles del sistema</h3>
     <div class="grid2">
+      <div>
+        <h3 style="margin-top:0">Superadministrador <span class="role-badge role-admin">Agencia</span></h3>
+        <p><strong>Soporte GLA</strong></p>
+        <ul>
+          <li>Es el perfil de la agencia que administra el sistema.</li>
+          <li>Único que puede <strong>crear, editar y eliminar usuarios</strong> y restablecer contraseñas.</li>
+          <li>Ve las secciones <strong>Usuarios</strong>, <strong>Conexiones</strong> e <strong>Historial</strong>.</li>
+          <li>Su sección <strong>Despacho</strong> agrupa Tareas, Clientes, Áreas, Servicios y Equipo Legal.</li>
+          <li>Puede entrar "como" otro usuario para revisar y regresar con un clic.</li>
+        </ul>
+      </div>
       <div>
         <h3 style="margin-top:0">Administrador</h3>
         <p><strong>Jonathan</strong> — <span class="role-badge role-admin">Administrador</span></p>
@@ -437,6 +485,7 @@ tr:nth-child(even) td{background:#fafbfc}
           <li>Crea y organiza eventos y tareas para todo el equipo.</li>
           <li>Gestiona clientes y expedientes.</li>
           <li>Ve el estado de las conexiones de correo (solo lectura).</li>
+          <li>Su sección <strong>Despacho</strong> agrupa Áreas, Servicios y Equipo Legal.</li>
           <li>Edita su propia cuenta y configuración.</li>
         </ul>
       </div>
@@ -447,6 +496,7 @@ tr:nth-child(even) td{background:#fafbfc}
           <li>Ven su agenda y sus tareas asignadas.</li>
           <li>Crean, completan y organizan tareas del equipo.</li>
           <li>Gestionan clientes y expedientes.</li>
+          <li>Administran las secciones de <strong>Despacho</strong> (Áreas, Servicios y Equipo Legal).</li>
           <li>Configuran su tono, sus avisos y conectan su correo.</li>
           <li>Editan su propia cuenta y contraseña.</li>
         </ul>
