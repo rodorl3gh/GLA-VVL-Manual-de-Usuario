@@ -23,8 +23,9 @@
   --border: #e2e8f0;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;font-size:15px}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;font-size:15px;overflow-x:hidden}
 h1,h2,h3,.font-display{font-family:'Playfair Display',Georgia,serif}
+img{max-width:100%;height:auto}
 
 /* PORTADA */
 .cover{background:linear-gradient(150deg,var(--navy) 0%,var(--navy-2) 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:3rem 2rem;position:relative;overflow:hidden;color:#fff}
@@ -37,7 +38,7 @@ h1,h2,h3,.font-display{font-family:'Playfair Display',Georgia,serif}
 .cover h1{font-size:3.4rem;font-weight:800;color:#fff;margin-bottom:.25rem;letter-spacing:-.01em}
 .cover h2{font-size:1.35rem;font-weight:500;color:var(--gold);margin-bottom:1.75rem;letter-spacing:.04em}
 .cover-line{width:80px;height:3px;background:var(--gold);border-radius:2px;margin:0 auto 2rem}
-.cover .subtitle{font-size:1.05rem;color:#c7d5e2;margin-bottom:3rem;max-width:520px;margin-left:auto;margin-right:auto}
+.cover .subtitle{font-size:1.05rem;color:#c7d5e2;margin-bottom:3rem;max-width:560px;margin-left:auto;margin-right:auto}
 .cover-info{display:flex;gap:2.2rem;justify-content:center;flex-wrap:wrap;color:#a9bed2;font-size:.85rem}
 .cover-info span{display:flex;align-items:center;gap:.45rem}
 
@@ -61,6 +62,7 @@ h1,h2,h3,.font-display{font-family:'Playfair Display',Georgia,serif}
 .section li{margin-bottom:.45rem}
 .section .tip{background:var(--teal-light);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:var(--navy)}
 .section .tip strong{color:var(--gold-dark)}
+.section .warn{background:#fff7ed;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:.9rem;color:#7c4a03}
 .section img{width:100%;border-radius:12px;border:1px solid var(--border);margin-top:.75rem;box-shadow:0 8px 24px rgba(0,31,63,.1)}
 .section .img-caption{text-align:center;font-size:.8rem;color:var(--muted);margin-top:.6rem;font-style:italic}
 .steps{counter-reset:step;margin:1rem 0}
@@ -75,6 +77,14 @@ h1,h2,h3,.font-display{font-family:'Playfair Display',Georgia,serif}
 .btn-green{background:#ecfdf5;color:#059669;border-color:#a7f3d0}
 .btn-red{background:#fef2f2;color:#dc2626;border-color:#fecaca}
 
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.88rem;overflow-x:auto;display:block}
+th,td{border:1px solid var(--border);padding:.6rem .75rem;text-align:left}
+th{background:var(--navy);color:#fff;font-weight:600}
+tr:nth-child(even) td{background:#fafbfc}
+.role-badge{display:inline-block;padding:.15rem .55rem;border-radius:9999px;font-size:.72rem;font-weight:700}
+.role-admin{background:rgba(62,109,156,.14);color:var(--blue)}
+.role-user{background:rgba(109,136,163,.16);color:var(--muted)}
+
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 @media(max-width:640px){.grid2{grid-template-columns:1fr}}
 
@@ -88,7 +98,7 @@ h1,h2,h3,.font-display{font-family:'Playfair Display',Georgia,serif}
   .section{box-shadow:none;border:1px solid #e2e8f0;page-break-inside:avoid}
   .page{max-width:100%;padding:1.5rem}
 }
-@media(max-width:768px){.cover h1{font-size:2.3rem}.section{padding:1.5rem}.toc ol{columns:1}}
+@media(max-width:768px){.cover h1{font-size:2.3rem}.section{padding:1.5rem}.toc ol{columns:1}.section-number{width:38px;height:38px}}
 </style>
 </head>
 <body>
@@ -101,7 +111,7 @@ h1,h2,h3,.font-display{font-family:'Playfair Display',Georgia,serif}
     <h1>Veni Vidi Lex</h1>
     <h2>Manual de Usuario</h2>
     <div class="cover-line"></div>
-    <p class="subtitle">Guía completa para gestionar tu despacho: agendar citas, administrar clientes y expedientes, y generar propuestas de servicios.</p>
+    <p class="subtitle">Guía completa del sistema: agenda de eventos, tareas del equipo, clientes y expedientes, historial de actividad, notificaciones y conexión de correo.</p>
     <div class="cover-info">
       <span>Celaya, Gto. &middot; Aguascalientes, Ags.</span>
       <span>2026</span>
@@ -113,15 +123,15 @@ h1,h2,h3,.font-display{font-family:'Playfair Display',Georgia,serif}
 
   <!-- BIENVENIDA -->
   <div class="section">
-    <h2>Bienvenido, Jonathan</h2>
-    <p>Este manual te guiará paso a paso en el uso de <strong>Veni Vidi Lex</strong>, el sistema digital de tu despacho. Aquí aprenderás a recibir citas de tus clientes, llevar el control de casos y expedientes, y generar propuestas de servicios en PDF.</p>
-    <p>El sistema se divide en dos grandes partes:</p>
+    <h2>Bienvenido al sistema</h2>
+    <p>Este manual está hecho para <strong>todo el equipo del despacho</strong>. Aquí aprenderás a usar <strong>Veni Vidi Lex</strong>: recibir y organizar eventos, dar seguimiento a clientes y expedientes, trabajar tus tareas, configurar tus notificaciones y conectar tu correo.</p>
+    <p>El sistema tiene dos partes:</p>
     <ul>
-      <li><strong>La página pública:</strong> lo que ven tus clientes cuando visitan tu sitio (información del despacho y el asistente para agendar citas).</li>
-      <li><strong>El panel de administración:</strong> donde tú gestionas citas, clientes, expedientes, áreas, servicios y testimonios.</li>
+      <li><strong>La página pública:</strong> lo que ven los clientes cuando visitan el sitio (información del despacho y el asistente para agendar citas).</li>
+      <li><strong>El panel de administración:</strong> donde el equipo trabaja todos los días (agenda, tareas, clientes, expedientes y configuración).</li>
     </ul>
-    <p><strong>No necesitas conocimientos técnicos.</strong> Todo está diseñado para que puedas usarlo fácilmente desde tu computadora o celular.</p>
-    <div class="tip"><strong>Acceso rápido:</strong> El sistema está disponible en internet en cualquier momento. Solo necesitas tu usuario y contraseña para entrar al panel.</div>
+    <p><strong>No necesitas conocimientos técnicos.</strong> Todo está pensado para usarse fácilmente desde computadora o celular.</p>
+    <div class="tip"><strong>Acceso:</strong> El panel está disponible en internet. Solo necesitas tu <em>usuario</em> y tu <em>contraseña</em> para entrar.</div>
   </div>
 
   <!-- ÍNDICE -->
@@ -131,14 +141,18 @@ h1,h2,h3,.font-display{font-family:'Playfair Display',Georgia,serif}
       <li><a href="#s1"><span class="n">1.</span>La página principal</a></li>
       <li><a href="#s2"><span class="n">2.</span>Agendar una cita</a></li>
       <li><a href="#s3"><span class="n">3.</span>Cómo te contactan los clientes</a></li>
-      <li><a href="#s4"><span class="n">4.</span>Cómo ingresar al panel de administración</a></li>
+      <li><a href="#s4"><span class="n">4.</span>Cómo ingresar al panel</a></li>
       <li><a href="#s5"><span class="n">5.</span>Panel principal (Dashboard)</a></li>
-      <li><a href="#s6"><span class="n">6.</span>Citas (agenda)</a></li>
-      <li><a href="#s7"><span class="n">7.</span>Clientes y expedientes</a></li>
-      <li><a href="#s8"><span class="n">8.</span>Generar una propuesta de servicios (PDF)</a></li>
-      <li><a href="#s9"><span class="n">9.</span>Áreas de práctica</a></li>
-      <li><a href="#s10"><span class="n">10.</span>Servicios</a></li>
-      <li><a href="#s11"><span class="n">11.</span>Testimonios</a></li>
+      <li><a href="#s6"><span class="n">6.</span>Agenda y eventos</a></li>
+      <li><a href="#s7"><span class="n">7.</span>Tareas del equipo y cumplimiento</a></li>
+      <li><a href="#s8"><span class="n">8.</span>Clientes y expedientes</a></li>
+      <li><a href="#s9"><span class="n">9.</span>Generar una propuesta de servicios (PDF)</a></li>
+      <li><a href="#s10"><span class="n">10.</span>Áreas de práctica</a></li>
+      <li><a href="#s11"><span class="n">11.</span>Servicios</a></li>
+      <li><a href="#s12"><span class="n">12.</span>Historial de actividad</a></li>
+      <li><a href="#s13"><span class="n">13.</span>Configuración, notificaciones y recordatorios</a></li>
+      <li><a href="#s14"><span class="n">14.</span>Conexión de correo</a></li>
+      <li><a href="#s15"><span class="n">15.</span>Usuarios y perfiles</a></li>
     </ol>
   </div>
 
@@ -146,190 +160,309 @@ h1,h2,h3,.font-display{font-family:'Playfair Display',Georgia,serif}
   <div class="section" id="s1">
     <div class="section-number">1</div>
     <h2>La página principal</h2>
-    <p class="lead">Es la primera pantalla que ven tus clientes. Presenta tu despacho y los invita a contactarte o agendar una cita.</p>
+    <p class="lead">Es la primera pantalla que ven los clientes. Presenta tu despacho y los invita a contactarte o agendar una cita.</p>
     <h3>Qué encuentra el cliente aquí</h3>
     <ul>
-      <li><strong>Portada (Hero):</strong> el mensaje principal <em>"Te defendemos como si fuera nuestro propio caso"</em>, con botones para <span class="btn btn-gold">Agendar cita</span> y <span class="btn">WhatsApp</span>.</li>
-      <li><strong>Cuéntanos tu caso:</strong> situaciones comunes (divorcio, despido, problemas con contratos, etc.) que llevan al cliente directo a tu WhatsApp.</li>
-      <li><strong>Conoce a tu abogado:</strong> tu foto, experiencia y valores del despacho.</li>
-      <li><strong>Áreas de práctica y Servicios:</strong> las especialidades del despacho con sus honorarios.</li>
-      <li><strong>Testimonios:</strong> historias de clientes satisfechos.</li>
-      <li><strong>Contacto:</strong> teléfono, WhatsApp, correo y las direcciones de tus dos sucursales con mapa.</li>
+      <li><strong>Portada (Hero):</strong> el mensaje principal con botones para <span class="btn btn-gold">Agendar cita</span> y <span class="btn">WhatsApp</span>.</li>
+      <li><strong>Cuéntanos tu caso:</strong> situaciones comunes (divorcio, despido, contratos, etc.) que llevan directo al WhatsApp del despacho.</li>
+      <li><strong>Conoce a tu abogado:</strong> foto, experiencia y valores del despacho.</li>
+      <li><strong>Áreas de práctica y Servicios:</strong> las especialidades con sus honorarios.</li>
+      <li><strong>Contacto:</strong> teléfono, WhatsApp, correo y las direcciones de las sucursales con mapa.</li>
     </ul>
     <img src="img/01-landing.png" alt="Página principal de Veni Vidi Lex">
     <p class="img-caption">Página principal que ven los visitantes con el hero y la invitación a agendar.</p>
-    <div class="tip"><strong>Botón de WhatsApp:</strong> En la esquina inferior derecha hay un botón flotante de WhatsApp. Cuando un cliente lo usa, el mensaje llega directo a tu número.</div>
+    <div class="tip"><strong>Botón de WhatsApp:</strong> en la esquina inferior aparece un botón flotante. Cuando un cliente lo usa, el mensaje llega directo al número del despacho.</div>
   </div>
 
   <!-- 2 -->
   <div class="section" id="s2">
     <div class="section-number">2</div>
     <h2>Agendar una cita</h2>
-    <p class="lead">El asistente guía a tu cliente en 4 pasos sencillos para reservar una cita desde la página web.</p>
+    <p class="lead">El asistente guía al cliente en 4 pasos para reservar una cita desde la página web.</p>
     <div class="steps">
-      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Servicio</strong><span>El cliente elige el servicio que necesita. El sistema avanza automáticamente al siguiente paso.</span></div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Fecha</strong><span>Selecciona un día disponible en el calendario (los domingos no están disponibles).</span></div></div>
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Servicio</strong><span>El cliente elige el servicio que necesita.</span></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Fecha</strong><span>Selecciona un día disponible (los domingos no están disponibles).</span></div></div>
       <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Hora</strong><span>Elige un horario disponible de la lista.</span></div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Datos</strong><span>Escribe su nombre, teléfono (10 dígitos) y notas opcionales. Confirma la cita.</span></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Datos</strong><span>Escribe nombre, teléfono (10 dígitos) y notas opcionales. Confirma la cita.</span></div></div>
     </div>
     <img src="img/02-agendar.png" alt="Asistente de citas con los pasos">
     <p class="img-caption">Asistente para agendar una cita, con el logo del despacho y los 4 pasos.</p>
     <h3>Clientes que ya existen</h3>
-    <p>Si el cliente ya se ha atendido antes, puede elegir <strong>"Ya soy cliente"</strong> y escribir su <strong>número de cliente</strong> (por ejemplo <span class="btn">CLI-001</span>). El sistema completa sus datos automáticamente y relaciona la nueva cita con su expediente.</p>
-    <div class="tip"><strong>Consejo:</strong> Al terminar, el cliente recibe su número de cliente. Ese número le sirve para futuras citas sin volver a escribir sus datos.</div>
+    <p>Si el cliente ya se atendió antes, puede elegir <strong>"Ya soy cliente"</strong> y escribir su <strong>número de cliente</strong> (por ejemplo <span class="btn">CLI-001</span>). El sistema completa sus datos y relaciona la nueva cita con su expediente.</p>
+    <div class="tip"><strong>Consejo:</strong> al terminar, el cliente recibe su número de cliente para futuras citas sin volver a escribir sus datos.</div>
   </div>
 
   <!-- 3 -->
   <div class="section" id="s3">
     <div class="section-number">3</div>
     <h2>Cómo te contactan los clientes</h2>
-    <p class="lead">La página tiene varios caminos para que el cliente se comunique contigo de forma directa.</p>
-    <h3>Canales de contacto</h3>
+    <p class="lead">La página tiene varios caminos para que el cliente se comunique de forma directa.</p>
     <ul>
-      <li><strong>WhatsApp:</strong> desde el botón flotante, desde la sección "Cuéntanos tu caso" o desde la sección de contacto. Cada caso predefine un mensaje para que sea más fácil para el cliente.</li>
-      <li><strong>Teléfono:</strong> los clientes pueden llamarte directamente desde la sección de contacto.</li>
-      <li><strong>Correo y redes:</strong> tu email e Instagram están visibles.</li>
-      <li><strong>Mapas:</strong> las dos sucursales muestran su ubicación en Google Maps.</li>
+      <li><strong>WhatsApp:</strong> desde el botón flotante o desde las secciones de casos y contacto.</li>
+      <li><strong>Teléfono:</strong> los clientes pueden llamar desde la sección de contacto.</li>
+      <li><strong>Correo y redes:</strong> el email e Instagram están visibles.</li>
+      <li><strong>Mapas:</strong> las sucursales muestran su ubicación en Google Maps.</li>
     </ul>
-    <div class="tip"><strong>Todo llega a ti:</strong> Las citas se guardan automáticamente en tu panel (sección Citas). Los mensajes de WhatsApp llegan a tu número. No tienes que hacer nada extra.</div>
+    <div class="tip"><strong>Todo llega al panel:</strong> las citas se guardan automáticamente en la Agenda. Los mensajes de WhatsApp llegan al número del despacho.</div>
   </div>
 
   <!-- 4 -->
   <div class="section" id="s4">
     <div class="section-number">4</div>
-    <h2>Cómo ingresar al panel de administración</h2>
-    <p class="lead">El panel de administración es tu centro de control. Para entrar, sigue estos pasos:</p>
+    <h2>Cómo ingresar al panel</h2>
+    <p class="lead">El panel de administración es el centro de trabajo del despacho. Para entrar:</p>
     <div class="steps">
-      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Abre el panel</strong><span>Agrega <span class="btn">/admin</span> al final de la dirección de tu sitio, por ejemplo: <em>tusitio.com/admin</em>.</span></div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Escribe tus credenciales</strong><span>Ingresa tu usuario y contraseña de administrador.</span></div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Haz clic en "Iniciar sesión"</strong><span>Serás redirigido al panel principal.</span></div></div>
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Abre el panel</strong><span>Agrega <span class="btn">/admin</span> al final de la dirección del sitio, por ejemplo: <em>vvljuridico.com/admin</em>.</span></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Escribe tus credenciales</strong><span>Ingresa tu usuario y tu contraseña.</span></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Haz clic en "Iniciar sesión"</strong><span>Entrarás directo al panel.</span></div></div>
     </div>
     <img src="img/03-login.png" alt="Pantalla de inicio de sesión">
     <p class="img-caption">Pantalla de inicio de sesión del panel de administración.</p>
-    <div class="tip"><strong>Importante:</strong> No compartas tu contraseña con nadie. Si la olvidas, contacta al administrador del sistema.</div>
+    <h3>Primer ingreso: cambio de contraseña obligatorio</h3>
+    <p>La <strong>primera vez</strong> que entres, el sistema te pedirá una <strong>nueva contraseña</strong>. En esa misma pantalla puedes <strong>mantener tu usuario</strong> o cambiarlo por uno que prefieras.</p>
+    <div class="warn"><strong>Importante:</strong> la contraseña temporal solo sirve para el primer ingreso. Elige una contraseña segura y no la compartas con nadie. Por seguridad, cada persona tiene su propio usuario.</div>
+    <div class="tip"><strong>¿Olvidaste tu contraseña?</strong> Contacta al soporte del sistema para que te la restablezca. Solo el administrador del sistema puede crear usuarios y restablecer contraseñas.</div>
   </div>
 
   <!-- 5 -->
   <div class="section" id="s5">
     <div class="section-number">5</div>
     <h2>Panel principal (Dashboard)</h2>
-    <p class="lead">Al ingresar, verás el Dashboard: un resumen de toda la actividad de tu despacho.</p>
-    <h3>Qué información muestra</h3>
+    <p class="lead">Al ingresar verás el Dashboard: un resumen de la actividad del despacho.</p>
     <ul>
-      <li><strong>Citas hoy:</strong> cuántas citas tienes para el día.</li>
+      <li><strong>Citas hoy:</strong> cuántas citas hay para el día.</li>
       <li><strong>Citas pendientes:</strong> las que aún no se confirman.</li>
       <li><strong>Clientes:</strong> el total de clientes registrados.</li>
       <li><strong>Casos activos:</strong> los expedientes en curso.</li>
     </ul>
-    <p>Debajo de las tarjetas está el <strong>acceso rápido</strong> a todas las secciones del panel.</p>
+    <p>Debajo están las tarjetas de <strong>acceso rápido</strong> a las secciones del panel.</p>
     <img src="img/04-dashboard.png" alt="Panel principal con estadísticas">
     <p class="img-caption">Panel principal con las tarjetas de resumen y el acceso rápido.</p>
-    <div class="tip"><strong>Menú lateral:</strong> A la izquierda tienes el menú con todas las secciones: Citas, Clientes, Áreas, Servicios y Testimonios. También puedes cambiar el tema a modo claro.</div>
+    <div class="tip"><strong>Menú lateral:</strong> a la izquierda está el menú con todas las secciones (Agenda, Tareas, Clientes, Áreas, Servicios, Equipo Legal). Según tu perfil verás además Historial, Conexiones y Configuración. También puedes cambiar entre modo claro y oscuro.</div>
   </div>
 
   <!-- 6 -->
   <div class="section" id="s6">
     <div class="section-number">6</div>
-    <h2>Citas (agenda)</h2>
-    <p class="lead">Aquí gestionas todas las citas que llegan desde la página web o que registras tú manualmente.</p>
+    <h2>Agenda y eventos</h2>
+    <p class="lead">Aquí se organiza todo lo del despacho: citas con clientes, diligencias, eventos y actividades internas.</p>
+    <h3>Tipos de evento</h3>
+    <ul>
+      <li><strong>Cita con cliente:</strong> una consulta o reunión con un cliente. Es la única que crea/vincula al cliente automáticamente.</li>
+      <li><strong>Diligencia:</strong> trámites, audiencias, notificaciones o gestiones.</li>
+      <li><strong>Evento:</strong> actividades internas del despacho.</li>
+      <li><strong>Otro:</strong> cualquier actividad que escribas manualmente (ej. capacitación, auditoría).</li>
+    </ul>
+    <p>Cada tipo tiene su <strong>color</strong>, y cada evento tiene un <strong>responsable</strong> (la persona encargada), para que sepas de quién es cada actividad.</p>
     <h3>Qué puedes hacer</h3>
     <ul>
-      <li><strong>Ver el calendario:</strong> navega entre meses con las flechas. Los días con citas se marcan con un punto dorado.</li>
-      <li><strong>Consultar un día:</strong> haz clic en un día para ver sus citas.</li>
+      <li><strong>Ver el calendario:</strong> navega entre meses; los días con actividades muestran puntos de color según el tipo.</li>
+      <li><strong>Filtrar por responsable:</strong> con el selector superior ves solo las actividades de una persona.</li>
+      <li><strong>Consultar un día:</strong> haz clic en un día para ver sus eventos y el responsable de cada uno.</li>
       <li><strong>Cambiar el estado:</strong> Pendiente → Confirmada → Completada → Cancelada.</li>
-      <li><strong>Nueva cita:</strong> con el botón <span class="btn btn-gold">Nueva cita</span> registra una cita manualmente.</li>
-      <li><strong>Eliminar:</strong> quita una cita que ya no necesites.</li>
+      <li><strong>Nuevo evento:</strong> con el botón <span class="btn btn-gold">Nuevo evento</span> eliges tipo, responsable, fecha, hora y notas.</li>
+      <li><strong>Editar o eliminar:</strong> abre un evento para modificarlo o quitarlo.</li>
     </ul>
-    <img src="img/05-citas.png" alt="Agenda de citas con calendario">
-    <p class="img-caption">Agenda de citas con el calendario y el detalle del día seleccionado.</p>
-    <div class="tip"><strong>Seguimiento:</strong> Usa los estados para saber en qué etapa está cada cita. Así no se te escapa ninguna consulta.</div>
+    <img src="img/05-citas.png" alt="Agenda de eventos con calendario">
+    <p class="img-caption">Agenda con el calendario, la leyenda de tipos y el detalle del día.</p>
+    <div class="tip"><strong>Recordatorios:</strong> si el responsable tiene su correo conectado, la actividad se envía a su calendario de Zoho y le recuerda automáticamente. También recibe el aviso dentro del sistema (ver sección 13).</div>
   </div>
 
   <!-- 7 -->
   <div class="section" id="s7">
     <div class="section-number">7</div>
-    <h2>Clientes y expedientes</h2>
-    <p class="lead">Aquí está toda la información de tus clientes y sus casos. Haz clic en cualquier cliente para abrir su ficha completa.</p>
-    <h3>Lista de clientes</h3>
-    <p>Cada tarjeta muestra el <strong>número de cliente</strong>, su nombre, teléfono, correo y cuántos expedientes y asuntos tiene. Haz clic en la tarjeta (en cualquier parte) para abrirla.</p>
-    <img src="img/06-clientes.png" alt="Lista de clientes">
-    <p class="img-caption">Lista de clientes con su número, datos de contacto y número de casos.</p>
-    <h3>Ficha del cliente</h3>
-    <p>Dentro de la ficha puedes editar los datos del cliente y gestionar sus casos:</p>
+    <h2>Tareas del equipo y cumplimiento</h2>
+    <p class="lead">Aquí se organiza el trabajo del equipo y se mide el avance de cada integrante.</p>
+    <h3>Pestaña "Activas"</h3>
     <ul>
-      <li><strong>Asuntos:</strong> materia, actor, demandado, asunto, expediente, estatus y juzgado de cada caso.</li>
-      <li><strong>Expedientes:</strong> la etapa del caso y las preguntas/respuestas del cliente.</li>
-      <li><strong>Documentos:</strong> adjunta documentos del caso con su estado.</li>
-      <li><strong>Seguimiento:</strong> notas sobre el avance del caso.</li>
+      <li><strong>Nueva tarea:</strong> escribe el título, la descripción, el <strong>responsable</strong>, la prioridad (Alta, Media, Baja) y una fecha límite.</li>
+      <li><strong>Completar:</strong> marca el círculo para dar la tarea por terminada.</li>
+      <li><strong>Editar o eliminar:</strong> cualquier integrante puede crear, completar, editar y eliminar tareas.</li>
     </ul>
-    <img src="img/07-cliente-detalle.png" alt="Ficha de un cliente con sus asuntos">
-    <p class="img-caption">Ficha del cliente con sus datos, asuntos y expedientes.</p>
-    <div class="tip"><strong>Atajo:</strong> Desde la ficha también puedes generar la propuesta de servicios (siguiente sección).</div>
+    <h3>Pestaña "Cumplimiento"</h3>
+    <ul>
+      <li>Muestra cuántas tareas ha completado cada persona, cuántas a tiempo y cuántas tarde.</li>
+      <li>Incluye el porcentaje de <strong>puntualidad</strong> y de <strong>cumplimiento</strong> de cada integrante.</li>
+    </ul>
+    <div class="tip"><strong>Memoria del sistema:</strong> las tareas completadas se muestran por <strong>7 días</strong> y después se limpian automáticamente; las tareas que siguen activas permanecen aunque duren más tiempo.</div>
   </div>
 
   <!-- 8 -->
   <div class="section" id="s8">
     <div class="section-number">8</div>
-    <h2>Generar una propuesta de servicios (PDF)</h2>
-    <p class="lead">Desde la ficha de un cliente puedes crear una propuesta o presupuesto de servicios en PDF, listo para entregar.</p>
-    <div class="steps">
-      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Abre el cliente</strong><span>En la ficha del cliente, haz clic en <span class="btn btn-gold">Generar contrato</span>.</span></div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Revisa los datos</strong><span>El formulario ya viene lleno con los datos del cliente, el caso y el despacho. Corrige o completa lo que haga falta (materia, objeto, titular, autoridad, etc.).</span></div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Escribe los honorarios</strong><span>Captura el honorario total. El sistema calcula automáticamente el monto en letra y las dos exhibiciones (50% cada una, ajustable).</span></div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Genera la propuesta</strong><span>Haz clic en <span class="btn btn-gold">Generar Propuesta</span>. El PDF se descarga en tu computadora.</span></div></div>
-    </div>
-    <img src="img/08-generar-contrato.png" alt="Formulario para generar la propuesta">
-    <p class="img-caption">Recuadro para generar la propuesta, con los datos precargados y los honorarios.</p>
-    <h3>Personalizar la redacción del documento</h3>
-    <p>Si necesitas ajustar el texto del documento, expande <strong>"Editar redacción del documento"</strong>:</p>
+    <h2>Clientes y expedientes</h2>
+    <p class="lead">Aquí está toda la información de los clientes y sus casos. Haz clic en cualquier cliente para abrir su ficha completa.</p>
+    <h3>Lista de clientes</h3>
+    <p>Cada tarjeta muestra el <strong>número de cliente</strong>, su nombre, teléfono, correo y cuántos expedientes y asuntos tiene.</p>
+    <h3>Filtros y búsqueda (nuevo)</h3>
     <ul>
-      <li>Las <strong>píldoras doradas</strong> son campos que se llenan solos (nombre del cliente, objeto, honorarios, etc.).</li>
-      <li>Puedes escribir texto libremente alrededor de las píldoras, borrarlas o agregar más con <span class="btn">＋ Insertar campo</span>.</li>
-      <li>Si desordenas el documento, usa <span class="btn">Restablecer contrato</span> para volver al formato original.</li>
+      <li><strong>Buscador:</strong> por nombre, código, teléfono o correo.</li>
+      <li><strong>Filtro por casos:</strong> Todos, con/sin expedientes, con/sin asuntos.</li>
+      <li><strong>Filtro por tipo de asunto:</strong> muestra solo los clientes de un área o tipo.</li>
+      <li><strong>Paginación:</strong> los clientes se muestran en <strong>páginas de 10 en 10</strong> para navegar más fácil. Usa <span class="btn">Anterior</span> / <span class="btn">Siguiente</span> o los números de página.</li>
     </ul>
-    <div class="tip"><strong>Importante:</strong> El PDF no se guarda automáticamente en el sistema. Descárgalo y guárdalo en tu computadora o en tu expediente.</div>
+    <img src="img/06-clientes.png" alt="Lista de clientes con filtros">
+    <p class="img-caption">Lista de clientes con buscador, filtros y paginación.</p>
+    <h3>Ficha del cliente</h3>
+    <ul>
+      <li><strong>Asuntos:</strong> materia, actor, demandado, asunto, expediente, estatus y juzgado.</li>
+      <li><strong>Expedientes:</strong> etapa del caso y preguntas/respuestas del cliente.</li>
+      <li><strong>Documentos:</strong> adjunta documentos del caso con su estado.</li>
+      <li><strong>Seguimiento:</strong> notas sobre el avance del caso.</li>
+    </ul>
+    <img src="img/07-cliente-detalle.png" alt="Ficha de un cliente con sus asuntos">
+    <p class="img-caption">Ficha del cliente con sus datos, asuntos y expedientes.</p>
   </div>
 
   <!-- 9 -->
   <div class="section" id="s9">
     <div class="section-number">9</div>
-    <h2>Áreas de práctica</h2>
-    <p class="lead">Las áreas son las especialidades del despacho que se muestran en la página principal.</p>
+    <h2>Generar una propuesta de servicios (PDF)</h2>
+    <p class="lead">Desde la ficha de un cliente puedes crear una propuesta o presupuesto en PDF, listo para entregar.</p>
     <div class="steps">
-      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Nueva área</strong><span>Con <span class="btn btn-gold">Nueva área</span> agrega una especialidad (nombre, descripción e icono).</span></div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Editar o eliminar</strong><span>Puedes modificar una área existente o quitarla si ya no la ofreces.</span></div></div>
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Abre el cliente</strong><span>En la ficha, haz clic en <span class="btn btn-gold">Generar contrato</span>.</span></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Revisa los datos</strong><span>El formulario ya viene lleno con los datos del cliente, el caso y el despacho. Corrige o completa lo que falte.</span></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Escribe los honorarios</strong><span>Captura el honorario total; el sistema calcula el monto en letra y las dos exhibiciones (50% cada una, ajustable).</span></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Genera la propuesta</strong><span>Haz clic en <span class="btn btn-gold">Generar Propuesta</span> y el PDF se descarga.</span></div></div>
     </div>
-    <img src="img/10-areas.png" alt="Gestión de áreas de práctica">
-    <p class="img-caption">Pantalla de administración de áreas de práctica.</p>
-    <div class="tip"><strong>Visible al instante:</strong> Los cambios que hagas aquí se reflejan de inmediato en la página pública.</div>
+    <img src="img/08-generar-contrato.png" alt="Formulario para generar la propuesta">
+    <p class="img-caption">Recuadro para generar la propuesta, con datos precargados y honorarios.</p>
+    <h3>Personalizar la redacción</h3>
+    <ul>
+      <li>Las <strong>píldoras doradas</strong> son campos que se llenan solos (cliente, objeto, honorarios, etc.).</li>
+      <li>Puedes escribir texto libre, borrar píldoras o agregar más con <span class="btn">＋ Insertar campo</span>.</li>
+      <li>Si desordenas el documento, usa <span class="btn">Restablecer contrato</span>.</li>
+    </ul>
+    <div class="tip"><strong>Importante:</strong> el PDF no se guarda automáticamente en el sistema. Descárgalo y guárdalo en tu computadora o expediente.</div>
   </div>
 
   <!-- 10 -->
   <div class="section" id="s10">
     <div class="section-number">10</div>
-    <h2>Servicios</h2>
-    <p class="lead">Los servicios son lo que ofreces, con sus honorarios. Aparecen en la página y en el asistente de citas.</p>
+    <h2>Áreas de práctica</h2>
+    <p class="lead">Las áreas son las especialidades del despacho que se muestran en la página pública.</p>
     <div class="steps">
-      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Nuevo servicio</strong><span>Agrega el nombre, descripción, honorario (ej. "Desde $800") y notas.</span></div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Editar o eliminar</strong><span>Actualiza precios o quita servicios que ya no ofrezcas.</span></div></div>
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Nueva área</strong><span>Con <span class="btn btn-gold">Nueva área</span> agrega una especialidad (nombre, descripción e icono).</span></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Editar o eliminar</strong><span>Modifica un área o quítala si ya no la ofreces.</span></div></div>
     </div>
-    <img src="img/09-servicios.png" alt="Gestión de servicios">
-    <p class="img-caption">Pantalla de administración de servicios con sus honorarios.</p>
-    <div class="tip"><strong>Honorarios claros:</strong> Los precios que pongas aquí se muestran en la página, así el cliente los ve desde el inicio.</div>
+    <img src="img/10-areas.png" alt="Gestión de áreas de práctica">
+    <p class="img-caption">Pantalla de administración de áreas de práctica.</p>
+    <div class="tip"><strong>Visible al instante:</strong> los cambios se reflejan de inmediato en la página pública.</div>
   </div>
 
   <!-- 11 -->
   <div class="section" id="s11">
     <div class="section-number">11</div>
-    <h2>Testimonios</h2>
-    <p class="lead">Los testimonios son las opiniones de tus clientes que generan confianza en la página.</p>
+    <h2>Servicios</h2>
+    <p class="lead">Los servicios son lo que ofrece el despacho, con sus honorarios. Aparecen en la página y en el asistente de citas.</p>
     <div class="steps">
-      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Nuevo testimonio</strong><span>Agrega el nombre del cliente, su cargo o tipo de caso, y su comentario.</span></div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Editar o eliminar</strong><span>Actualiza o quita testimonios cuando lo necesites.</span></div></div>
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Nuevo servicio</strong><span>Agrega nombre, descripción, honorario (ej. "Desde $800") y notas.</span></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Editar o eliminar</strong><span>Actualiza precios o quita servicios que ya no ofrezcas.</span></div></div>
     </div>
-    <img src="img/11-testimonios.png" alt="Gestión de testimonios">
-    <p class="img-caption">Pantalla de administración de testimonios.</p>
-    <div class="tip"><strong>Recomendación:</strong> Pide a tus clientes satisfechos una frase corta; es la mejor publicidad para tu despacho.</div>
+    <img src="img/09-servicios.png" alt="Gestión de servicios">
+    <p class="img-caption">Pantalla de administración de servicios con sus honorarios.</p>
+    <div class="tip"><strong>Honorarios claros:</strong> los precios que pongas aquí se muestran en la página, así el cliente los ve desde el inicio.</div>
+  </div>
+
+  <!-- 12 -->
+  <div class="section" id="s12">
+    <div class="section-number">12</div>
+    <h2>Historial de actividad</h2>
+    <p class="lead">Registro de todo lo que pasa en el sistema: inicios de sesión, altas y cambios de clientes, expedientes, eventos, tareas y usuarios.</p>
+    <p>El <strong>administrador</strong> puede ver la actividad del equipo de los <strong>últimos 15 días</strong>. El historial se muestra en <strong>páginas de 20 en 20</strong> y puedes filtrarlo por tipo de acción.</p>
+    <ul>
+      <li><strong>Filtro por acción:</strong> muestra solo un tipo (por ejemplo, altas de clientes).</li>
+      <li><strong>Paginación:</strong> usa <span class="btn">Anterior</span> / <span class="btn">Siguiente</span> para avanzar.</li>
+      <li><strong>Descargar historial (TXT):</strong> genera un archivo de texto con el registro para análisis o respaldo.</li>
+    </ul>
+    <div class="tip"><strong>Respaldo automático:</strong> el día 1 de cada mes el sistema guarda automáticamente el historial del mes anterior como reporte y, una vez guardado correctamente, libera esa memoria.</div>
+  </div>
+
+  <!-- 13 -->
+  <div class="section" id="s13">
+    <div class="section-number">13</div>
+    <h2>Configuración, notificaciones y recordatorios</h2>
+    <p class="lead">Cada persona tiene su propia sección de <strong>Configuración</strong> en el menú lateral.</p>
+    <h3>Mi cuenta</h3>
+    <ul>
+      <li>Cambiar tu <strong>nombre</strong> y tu <strong>usuario</strong>.</li>
+      <li>Cambiar tu <strong>contraseña</strong> (hay un límite de 3 cambios por mes por seguridad).</li>
+    </ul>
+    <h3>Notificaciones</h3>
+    <ul>
+      <li><strong>Activar/desactivar</strong> las notificaciones.</li>
+      <li><strong>Tono:</strong> elige el sonido de tus avisos y escúchalo con el botón "Probar".</li>
+      <li><strong>Permitir notificaciones en el dispositivo:</strong> para que te avise el navegador.</li>
+    </ul>
+    <h3>Avisos de eventos próximos</h3>
+    <ul>
+      <li>Elige con cuánta <strong>anticipación</strong> quieres que te avisen de tus eventos: desde <strong>7 días</strong> hasta <strong>1 día</strong>, desde <strong>24 horas</strong> hasta <strong>30 minutos</strong>, o una opción <strong>personalizada</strong>.</li>
+      <li>El sistema te avisa con tono y notificación antes de tus actividades asignadas.</li>
+    </ul>
+    <div class="tip"><strong>Todo es personal:</strong> cada usuario configura su propio tono y sus propios tiempos de aviso sin afectar a los demás.</div>
+  </div>
+
+  <!-- 14 -->
+  <div class="section" id="s14">
+    <div class="section-number">14</div>
+    <h2>Conexión de correo</h2>
+    <p class="lead">Conecta tu correo del despacho para que tus eventos se agreguen a tu calendario y te recuerden automáticamente.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Crea una contraseña de aplicación en Zoho</strong><span>Entra a tu cuenta de Zoho Mail → Seguridad → Contraseñas de aplicación y genera una.</span></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Conéctala en el sistema</strong><span>En <strong>Configuración → Conexión de correo</strong>, escribe tu correo y pega la contraseña de aplicación.</span></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>El sistema valida la conexión</strong><span>Si las credenciales son correctas, verás la etiqueta <strong>"Verificado"</strong>. Si no, aparecerá un aviso para corregirla.</span></div></div>
+    </div>
+    <h3>Qué pasa al conectarlo</h3>
+    <ul>
+      <li>Los <strong>eventos y tareas</strong> que se te asignen se enviarán a tu correo como invitación de calendario.</li>
+      <li>Tu <strong>calendario de Zoho</strong> los registra y te envía el recordatorio según tu configuración de Zoho.</li>
+      <li>Puedes <strong>actualizar</strong> tus credenciales o <strong>desconectar</strong> tu correo cuando quieras.</li>
+    </ul>
+    <div class="tip"><strong>Privacidad:</strong> el administrador puede ver si tu conexión está correcta, pero no ve tu contraseña. Solo el soporte del sistema puede revocar una conexión.</div>
+  </div>
+
+  <!-- 15 -->
+  <div class="section" id="s15">
+    <div class="section-number">15</div>
+    <h2>Usuarios y perfiles</h2>
+    <p class="lead">Cada persona del despacho tiene su propio usuario y contraseña. Así cada quien ve lo suyo y todo queda registrado.</p>
+    <h3>Perfiles del sistema</h3>
+    <div class="grid2">
+      <div>
+        <h3 style="margin-top:0">Administrador</h3>
+        <p><strong>Jonathan</strong> — <span class="role-badge role-admin">Administrador</span></p>
+        <ul>
+          <li>Ve y gestiona toda la operación del despacho.</li>
+          <li>Ve el <strong>historial de actividad del equipo</strong> (15 días) y su cumplimiento.</li>
+          <li>Crea y organiza eventos y tareas para todo el equipo.</li>
+          <li>Gestiona clientes y expedientes.</li>
+          <li>Ve el estado de las conexiones de correo (solo lectura).</li>
+          <li>Edita su propia cuenta y configuración.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="margin-top:0">Abogados / colaboradores</h3>
+        <p><span class="role-badge role-user">Usuario</span></p>
+        <ul>
+          <li>Ven su agenda y sus tareas asignadas.</li>
+          <li>Crean, completan y organizan tareas del equipo.</li>
+          <li>Gestionan clientes y expedientes.</li>
+          <li>Configuran su tono, sus avisos y conectan su correo.</li>
+          <li>Editan su propia cuenta y contraseña.</li>
+        </ul>
+      </div>
+    </div>
+    <h3>Usuarios del equipo</h3>
+    <table>
+      <tr><th>Nombre</th><th>Usuario</th><th>Perfil</th></tr>
+      <tr><td>Lic. Jonathan Jafet Pallares Hernández</td><td>jonathanvvl</td><td><span class="role-badge role-admin">Administrador</span></td></tr>
+      <tr><td>Lic. Joel Cervantes Rodríguez</td><td>joelvvl</td><td><span class="role-badge role-user">Usuario</span></td></tr>
+      <tr><td>Lic. Priscila López Arce</td><td>priscilavvl</td><td><span class="role-badge role-user">Usuario</span></td></tr>
+      <tr><td>Lic. Martha Beatriz Lizárraga Ruiz</td><td>marthavvl</td><td><span class="role-badge role-user">Usuario</span></td></tr>
+      <tr><td>Lic. Cecilia Fabiola López Aguilera</td><td>ceciliavvl</td><td><span class="role-badge role-user">Usuario</span></td></tr>
+    </table>
+    <div class="warn"><strong>Las contraseñas son personales y se entregan de forma privada.</strong> En el primer ingreso el sistema obliga a cambiarlas. Si alguien la olvida, debe pedir apoyo al soporte del sistema para restablecerla.</div>
+    <div class="tip"><strong>Sugerencia:</strong> no compartas tu usuario. Todo lo que se hace en el sistema queda registrado con el nombre de quien lo hizo.</div>
   </div>
 
   <!-- FOOTER -->
